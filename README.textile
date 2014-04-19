@@ -6,5 +6,6 @@ This branch is used for testing potential changes to upstream.
 
 Currently:
 * Cleanup of @lib/@ files — "#2422":https://github.com/robbyrussell/oh-my-zsh/pull/2422
+* Fix in @rkj-repos@ theme — "#2606":https://github.com/robbyrussell/oh-my-zsh/pull/2606
 * Refactor of @gallois@ theme — "#2648":https://github.com/robbyrussell/oh-my-zsh/pull/2648
 * New @omz-bootstrap@ plugin — "#2690":https://github.com/robbyrussell/oh-my-zsh/pull/2690
