@@ -132,6 +132,7 @@ alias gpf='git push --force'
 alias gpoat='git push origin --all && git push origin --tags'
 compdef _git gpoat=git-push
 alias gpu='git push upstream'
+alias gpv='git push -v'
 
 alias gr='git remote'
 alias gr1='git rebase -i HEAD~'
@@ -181,6 +182,8 @@ alias gunignore='git update-index --no-assume-unchanged'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 alias gup='git pull --rebase'
 compdef _git gup=git-fetch
+alias gupv='git pull -v --rebase'
+compdef _git gupv=git-fetch
 
 alias gvt='git verify-tag'
 
