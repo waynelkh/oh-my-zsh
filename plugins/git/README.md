@@ -1,6 +1,6 @@
 ## git
 
-**Maintainers:** [@Stibbons](https://github.com/Stibbons), [@ncanceill](https://github.com/ncanceill)
+**Maintainer:** [@ncanceill](https://github.com/ncanceill)
 
 This plugin adds many aliases and improves the default completion function.
 
