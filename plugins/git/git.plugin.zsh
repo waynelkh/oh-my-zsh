@@ -11,8 +11,6 @@ function current_branch() {
 }
 # The list of remotes
 function current_repository() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
   echo $(git remote -v 2> /dev/null | cut -d':' -f 2)
 }
 # Pretty log messages
@@ -21,7 +19,7 @@ function _git_log_prettily(){
     git log --pretty=$1
   fi
 }
-# This function return a warning if the current branch is a wip
+# Warn if the current branch is a WIP
 function work_in_progress() {
   if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
     echo "WIP!!"
