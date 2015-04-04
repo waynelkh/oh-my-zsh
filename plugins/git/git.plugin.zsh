@@ -179,9 +179,7 @@ alias gts='git tag -s'
 alias gunignore='git update-index --no-assume-unchanged'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 alias gup='git pull --rebase'
-compdef _git gup=git-fetch
 alias gupv='git pull -v --rebase'
-compdef _git gupv=git-fetch
 
 alias gvt='git verify-tag'
 
