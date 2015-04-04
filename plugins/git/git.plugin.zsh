@@ -1,11 +1,4 @@
 #
-# Compatibility
-#
-
-# Check xargs flavor for -r flag
-echo | xargs -r &>/dev/null && XARGS_OPTS="-r"
-
-#
 # Functions
 #
 
@@ -186,7 +179,4 @@ compdef _git gup=git-fetch
 alias gvt='git verify-tag'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gwip="git add -A; git ls-files --deleted -z | xargs ${XARGS_OPTS} -0 git rm 2>/dev/null; git commit -m \"--wip--\""
-
-# Compatibility
-unset XARGS_OPTS
+alias gwip="git add -A; git rm $(git ls-files --deleted); git commit -m \"--wip--\""
