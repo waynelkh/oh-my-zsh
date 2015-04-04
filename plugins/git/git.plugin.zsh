@@ -13,7 +13,7 @@ function current_branch() {
 function current_repository() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo $(git remote -v | cut -d':' -f 2)
+  echo $(git remote -v 2> /dev/null | cut -d':' -f 2)
 }
 # Pretty log messages
 function _git_log_prettily(){
