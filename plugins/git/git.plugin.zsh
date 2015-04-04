@@ -184,4 +184,4 @@ alias gupv='git pull -v --rebase'
 alias gvt='git verify-tag'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gwip="git add -A; git rm $(git ls-files --deleted); git commit -m \"--wip--\""
+alias gwip='git add -A; git rm $(git ls-files --deleted); git commit -m "--wip--"'
