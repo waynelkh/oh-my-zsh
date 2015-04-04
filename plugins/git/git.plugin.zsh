@@ -47,6 +47,7 @@ alias gc='git commit -v'
 alias gc!='git commit -v --amend'
 alias gca='git commit -v -a'
 alias gca!='git commit -v -a --amend'
+alias gcan!='git commit -v -a -s --no-edit --amend'
 alias gcl='git config --list'
 alias gclean='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
@@ -65,6 +66,7 @@ compdef _git gdv=git-diff
 alias gdw='git diff --word-diff'
 
 alias gf='git fetch'
+alias gfa='git fetch --all --prune'
 function gfg() { git ls-files | grep $@ }
 compdef gfg=grep
 
@@ -112,11 +114,14 @@ alias glgg='git log --graph --color'
 alias glgga='git log --graph --decorate --all'
 alias glgm='git log --graph --max-count=10'
 alias glo='git log --oneline --decorate --color'
+alias glol="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glola="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 alias glog='git log --oneline --decorate --color --graph'
 alias glp="_git_log_prettily"
 compdef _git glp=git-log
 
 alias gm='git merge'
+alias gmom='git merge origin/master'
 alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
 alias gmum='git merge upstream/master'
@@ -126,6 +131,7 @@ alias gpd='git push --dry-run'
 alias gpf='git push --force'
 alias gpoat='git push origin --all && git push origin --tags'
 compdef _git gpoat=git-push
+alias gpu='git push upstream'
 
 alias gr='git remote'
 alias gr1='git rebase -i HEAD~'
