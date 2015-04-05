@@ -89,6 +89,7 @@ ggpnp() {
 ggl "$1" && ggp "$1"
 }
 compdef _git ggpnp=git-checkout
+alias ggsup='git branch --set-upstream-to=origin/$(current_branch)'
 ggu() {
 [[ "$#" != 1 ]] && b="$(current_branch)"
 git pull --rebase origin "${b:=$1}"
