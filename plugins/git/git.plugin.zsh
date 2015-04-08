@@ -1,17 +1,32 @@
+# Query/use custom command for `git`.
+local git_cmd
+zstyle -s ":vcs_info:git:*:-all-" "command" git_cmd
+: ${git_cmd:=git}
+
 #
 # Functions
 #
 
 # The current branch name
 # Usage example: git pull origin $(current_branch)
+# Using '--quiet' with 'symbolic-ref' will not cause a fatal error (128) if
+# it's not a symbolic ref, but in a Git repo.
 function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  local ref
+  ref=$($git_cmd symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$($git_cmd rev-parse --short HEAD 2> /dev/null) || return
+  fi
   echo ${ref#refs/heads/}
 }
 # The list of remotes
 function current_repository() {
-  echo $(git remote -v 2> /dev/null | cut -d':' -f 2)
+  if ! $git_cmd rev-parse --is-inside-work-tree &> /dev/null; then
+    return
+  fi
+  echo $($git_cmd remote -v | cut -d':' -f 2)
 }
 # Pretty log messages
 function _git_log_prettily(){
