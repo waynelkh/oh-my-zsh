@@ -52,6 +52,7 @@ alias ga='git add'
 
 alias gb='git branch'
 alias gba='git branch -a'
+alias gbda='git branch --merged | command grep -vE "^(\*|\s*master\s*$)" | command xargs -n 1 git branch -d'
 alias gbl='git blame -b -w'
 alias gbnm='git branch --no-merged'
 alias gbr='git branch --remote'
